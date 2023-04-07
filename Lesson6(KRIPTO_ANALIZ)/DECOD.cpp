@@ -6,9 +6,9 @@
 #include <filesystem>
 #include <regex>
 using namespace std;
-string ABC = "абвгдежзийклмнопрстуфхцчшщъыьэюя";
+string ABC = "Р°Р±РІРіРґРµР¶Р·РёР№РєР»РјРЅРѕРїСЂСЃС‚СѓС„С…С†С‡С€С‰СЉС‹СЊСЌСЋСЏ";
 
-void countLetter(string &text) {
+void countLetter(string &text) {//РїРµСЂРµР±РѕСЂ СЃС…РѕР¶РёС… Р·РЅР°С‡РµРЅРёР№ РїРѕ РґР»РёРЅРµ РєР»СЋС‡Р°
 	unordered_map<int, int> freq;
 	for (int i = 2; i <= 40; i++)
 	{
@@ -20,8 +20,8 @@ void countLetter(string &text) {
 		
 	}
 
-	vector<pair<int, int>> vec(freq.begin(), freq.end());//создаем вектор который хранит ключ и значение 
-	sort(vec.begin(), vec.end(), [](const pair<char, int>& a, const pair<char, int>& b) {//для удобства сортируем по убиванию //GITH
+	vector<pair<int, int>> vec(freq.begin(), freq.end());//СЃРѕР·РґР°РµРј РІРµРєС‚РѕСЂ РєРѕС‚РѕСЂС‹Р№ С…СЂР°РЅРёС‚ РєР»СЋС‡ Рё Р·РЅР°С‡РµРЅРёРµ 
+	sort(vec.begin(), vec.end(), [](const pair<char, int>& a, const pair<char, int>& b) {//РґР»СЏ СѓРґРѕР±СЃС‚РІР° СЃРѕСЂС‚РёСЂСѓРµРј РїРѕ СѓР±РёРІР°РЅРёСЋ //GITH
 		return a.second > b.second;
 	});
 
@@ -38,8 +38,8 @@ void symbolFrequencies(string& text) {
 		freq[c]++;
 	}
 
-	vector<pair<char, int>> vec(freq.begin(), freq.end());//создаем вектор который хранит ключ и значение 
-	sort(vec.begin(), vec.end(), [](const pair<char, int>& a, const pair<char, int>& b) {//для удобства сортируем по убиванию //GITH
+	vector<pair<char, int>> vec(freq.begin(), freq.end());//СЃРѕР·РґР°РµРј РІРµРєС‚РѕСЂ РєРѕС‚РѕСЂС‹Р№ С…СЂР°РЅРёС‚ РєР»СЋС‡ Рё Р·РЅР°С‡РµРЅРёРµ 
+	sort(vec.begin(), vec.end(), [](const pair<char, int>& a, const pair<char, int>& b) {//РґР»СЏ СѓРґРѕР±СЃС‚РІР° СЃРѕСЂС‚РёСЂСѓРµРј РїРѕ СѓР±РёРІР°РЅРёСЋ //GITH
 		return a.second > b.second;
 		});
 
@@ -49,19 +49,19 @@ void symbolFrequencies(string& text) {
 	}*/
 }
 double indexOfCoincidence(string& text) {
-	unordered_map<char, int> freqs; // unordered_map для хранения частот каждой буквы
-	long long int total = 0; // общее количество букв в тексте
-	long double ic = 0.0; // индекс совпадений
+	unordered_map<char, int> freqs; // unordered_map РґР»СЏ С…СЂР°РЅРµРЅРёСЏ С‡Р°СЃС‚РѕС‚ РєР°Р¶РґРѕР№ Р±СѓРєРІС‹
+	long long int total = 0; // РѕР±С‰РµРµ РєРѕР»РёС‡РµСЃС‚РІРѕ Р±СѓРєРІ РІ С‚РµРєСЃС‚Рµ
+	long double ic = 0.0; // РёРЅРґРµРєСЃ СЃРѕРІРїР°РґРµРЅРёР№
 
-	// подсчет частот каждой буквы
+	// РїРѕРґСЃС‡РµС‚ С‡Р°СЃС‚РѕС‚ РєР°Р¶РґРѕР№ Р±СѓРєРІС‹
 	for (char c : text) {
-		if (c >= 'а' && c <= 'я') {
-			freqs[c]++; // увеличиваем частоту символа на 1
-			total++; // увеличиваем счетчик символов на 1
+		if (c >= 'Р°' && c <= 'СЏ') {
+			freqs[c]++; // СѓРІРµР»РёС‡РёРІР°РµРј С‡Р°СЃС‚РѕС‚Сѓ СЃРёРјРІРѕР»Р° РЅР° 1
+			total++; // СѓРІРµР»РёС‡РёРІР°РµРј СЃС‡РµС‚С‡РёРє СЃРёРјРІРѕР»РѕРІ РЅР° 1
 		}
 	}
 
-	// расчет индекса совпадений
+	// СЂР°СЃС‡РµС‚ РёРЅРґРµРєСЃР° СЃРѕРІРїР°РґРµРЅРёР№
 	for (auto& pair : freqs) {
 		ic += pair.second * (pair.second - 1);
 	}
@@ -88,18 +88,18 @@ vector<pair<char, int>> charValue(string block) {
 }
 
 
-void bloc(string plaintext) { //метод для разбития текста на блоки для разшифровки с помошью unit
-	unordered_map<int, string> freq;//мап для хранение номера строки и содержашего текста 
+void bloc(string plaintext) { //РјРµС‚РѕРґ РґР»СЏ СЂР°Р·Р±РёС‚РёСЏ С‚РµРєСЃС‚Р° РЅР° Р±Р»РѕРєРё РґР»СЏ СЂР°Р·С€РёС„СЂРѕРІРєРё СЃ РїРѕРјРѕС€СЊСЋ unit
+	unordered_map<int, string> freq;//РјР°Рї РґР»СЏ С…СЂР°РЅРµРЅРёРµ РЅРѕРјРµСЂР° СЃС‚СЂРѕРєРё Рё СЃРѕРґРµСЂР¶Р°С€РµРіРѕ С‚РµРєСЃС‚Р° 
 	string key;
-	int r = 16; // длина ключа 
-	for (int i = 0; i <r; i++)//от 0 елемента до 16 
+	int r = 16; // РґР»РёРЅР° РєР»СЋС‡Р° 
+	for (int i = 0; i <r; i++)//РѕС‚ 0 РµР»РµРјРµРЅС‚Р° РґРѕ 16 
 	{
-		for (int j = 0 + i; j < plaintext.length(); j += r) {//цикл для перебора символов в периоде ключа сдвига перебор от первого до элемента равного длине ключа 
-				freq[i] += plaintext[j];//добавление к строке 
+		for (int j = 0 + i; j < plaintext.length(); j += r) {//С†РёРєР» РґР»СЏ РїРµСЂРµР±РѕСЂР° СЃРёРјРІРѕР»РѕРІ РІ РїРµСЂРёРѕРґРµ РєР»СЋС‡Р° СЃРґРІРёРіР° РїРµСЂРµР±РѕСЂ РѕС‚ РїРµСЂРІРѕРіРѕ РґРѕ СЌР»РµРјРµРЅС‚Р° СЂР°РІРЅРѕРіРѕ РґР»РёРЅРµ РєР»СЋС‡Р° 
+				freq[i] += plaintext[j];//РґРѕР±Р°РІР»РµРЅРёРµ Рє СЃС‚СЂРѕРєРµ 
 		}
 	}
-	for (const auto& pair1 : freq) {//вывод 
-		cout << "{" << pair1.first << ": " << pair1.second << "}" << endl;// вывод ключа и значения 
+	for (const auto& pair1 : freq) {//РІС‹РІРѕРґ 
+		cout << "{" << pair1.first << ": " << pair1.second << "}" << endl;// РІС‹РІРѕРґ РєР»СЋС‡Р° Рё Р·РЅР°С‡РµРЅРёСЏ 
 		string r = pair1.second;
 		vector<string> blocks ;
 		blocks.push_back(r);
@@ -108,7 +108,7 @@ void bloc(string plaintext) { //метод для разбития текста на блоки для разшифров
 			char o = max_element(b_stats.begin(), b_stats.end(), [](const pair<char, int>& p1, const pair<char, int>& p2) {
 				return p1.second < p2.second;
 				})->first;
-			int decodL = (ABC.find(o) - ABC.find('о') + ABC.size()) % ABC.size();
+			int decodL = (ABC.find(o) - ABC.find('Рѕ') + ABC.size()) % ABC.size();
 			key += ABC[decodL];
 		}
 		cout <<key<<endl;
@@ -117,24 +117,24 @@ void bloc(string plaintext) { //метод для разбития текста на блоки для разшифров
 	}
 }
 string Text() {
-	//string str1 = " Карл у Клары Украл корали ,Карла у Карлы украла кларнет  ";
+	//string str1 = " РљР°СЂР» Сѓ РљР»Р°СЂС‹ РЈРєСЂР°Р» РєРѕСЂР°Р»Рё ,РљР°СЂР»Р° Сѓ РљР°СЂР»С‹ СѓРєСЂР°Р»Р° РєР»Р°СЂРЅРµС‚  ";
 	string path = "..\\file.txt";
 	ifstream fin;
 	fin.open(path);
 	string res = "";
 	if (!fin.is_open()) {
-		cout << "Ошибка вывода файла " << endl;
+		cout << "РћС€РёР±РєР° РІС‹РІРѕРґР° С„Р°Р№Р»Р° " << endl;
 	}
 	else
 	{
-		cout << "Файл открыт" << endl;
+		cout << "Р¤Р°Р№Р» РѕС‚РєСЂС‹С‚" << endl;
 		//char ch;
-		//fin.get(ch) выводит данные по символьно 
+		//fin.get(ch) РІС‹РІРѕРґРёС‚ РґР°РЅРЅС‹Рµ РїРѕ СЃРёРјРІРѕР»СЊРЅРѕ 
 
 		string str;
-		while (!fin.eof()) // отлвливает конец вайла 
+		while (!fin.eof()) // РѕС‚Р»РІР»РёРІР°РµС‚ РєРѕРЅРµС† РІР°Р№Р»Р° 
 		{
-			str = ""; //для корректного счетия	
+			str = ""; //РґР»СЏ РєРѕСЂСЂРµРєС‚РЅРѕРіРѕ СЃС‡РµС‚РёСЏ	
 			getline(fin, str);
 			res += str;
 		}
@@ -153,7 +153,7 @@ int main() {
 
 	string text = Text();
 	symbolFrequencies(text);
-	//countLetter(text);
+	countLetter(text);
 	bloc(text);
 
 	
